@@ -1,0 +1,86 @@
+/* --- Form Container --- */
+form {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- Section Titles --- */
+form h2, h3 {
+    margin-top: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- Input Fields --- */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form input[type="date"],
+form input[type="password"],
+form input[type="string"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+/* Highlight inputs when focused */
+form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* --- Radio Buttons --- */
+form label {
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+/* --- Submit Button --- */
+form button {
+    padding: 14px;
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+form button:hover {
+    background: #0056b3;
+}

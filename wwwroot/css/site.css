@@ -1,0 +1,60 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse; /* merge borders */
+    text-align: center; /* center text in cells */
+}
+
+.students-table th,
+.students-table td {
+    border: 1px solid #333; /* vertical and horizontal lines */
+    padding: 10px;
+}
+
+.students-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.students-table tr:nth-child(even) {
+    background-color: #fafafa; /* optional striped rows */
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 14px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: background 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.btn-link:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
