@@ -1,0 +1,97 @@
+@model WebProject.Models.Student
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h2>Edit Student</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="StudentID" />
+
+    <table class="edit-table">
+        <tr>
+            <th>ID</th>
+            <td>@Model.StudentID</td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td><input asp-for="FirstName" /></td>
+        </tr>
+         <tr>
+            <th>Middle Name</th>
+            <td><input asp-for="MiddleName" /></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td><input asp-for="LastName" /></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input asp-for="Email" type="email" /></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input asp-for="Phone" /></td>
+        </tr>
+        <tr>
+            <th>Program</th>
+            <td><input asp-for="Program" /></td>
+        </tr>
+        <tr>
+            <th>Enrollment Type</th>
+            <td>
+                <input type="radio" asp-for="EnrollmentType" value="Full-Time" /> Full-Time
+                <input type="radio" asp-for="EnrollmentType" value="Part-Time" /> Part-Time
+            </td>
+        </tr>
+        <tr>
+            <th>Expected Graduation Year</th>
+            <td><input asp-for="ExpectedGraduationYear" type="number" /></td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td><input asp-for="DateOfBirth" type="date" /></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>
+                <input type="radio" asp-for="Gender" value="Male" /> Male
+                <input type="radio" asp-for="Gender" value="Female" /> Female
+                <input type="radio" asp-for="Gender" value="Other" /> Other
+            </td>
+        </tr>
+        <tr>
+            <th>Nationality</th>
+            <td><input asp-for="Nationality" /></td>
+        </tr>
+        <tr>
+            <th>Street Address</th>
+            <td><input asp-for="StreetAddress" /></td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td><input asp-for="City" /></td>
+        </tr>
+        <tr>
+            <th>Province</th>
+            <td><input asp-for="Province" /></td>
+        </tr>
+        <tr>
+            <th>Zip Code</th>
+            <td><input asp-for="ZipCode" /></td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td><input asp-for="Country" /></td>
+        </tr>
+        <tr>
+            <th>Additional Info</th>
+            <td><textarea asp-for="AdditionalInfo"></textarea></td>
+        </tr>
+    </table>
+
+    <div class="edit-buttons" style="margin-top: 20px;">
+        <button type="submit" class="btn-action">Save</button>
+        <a href="/Home/Students" class="btn-danger">Cancel</a>
+    </div>
+</form>

@@ -12,6 +12,7 @@
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,10 @@
             <td>@student.StudentID</td>
             <td>@student.FirstName</td>
             <td>@student.LastName</td>
+            <td>
+                <a class="btn-action" href="/Home/Details/@student.StudentID">Details</a>
+                <a class="btn-action" href="/Home/Edit/@student.StudentID">Edit</a>
+                <a class="btn-danger" href="/Home/Delete/@student.StudentID">Delete</a>
         </tr>
     }
     </tbody>
