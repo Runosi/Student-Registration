@@ -1,10 +1,40 @@
+body{
+
+    background-color: rgb(111, 165, 180);
+}
 .home-container{
+    height: 500px;
+    padding: 40px;
+   background-color: aliceblue;
+   border-radius: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#he2{
+    text-align: right;
+}
+
+img{
+    height: 550px;
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+        object-fit: cover;
 }
 
 .home-btn{
     padding: 80px;
+    
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -13,9 +43,11 @@
 }
 
 .new-btn{
+    text-align: center;
+    width: 400px;
     background-color: rgb(23, 56, 56);
     border-radius: 10px;
     text-decoration: none;
     color: white;
-    padding: 10px;
+    padding: 20px;
 }
