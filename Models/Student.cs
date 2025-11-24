@@ -11,20 +11,20 @@ namespace WebProject.Models
         [Column("STUDENTIDINTERNAL")]
         public int StudentIdInternal { get; set; }
 
-        [Column("STUDENTID")]
-        public string StudentID { get; set; }
-
         [Column("FIRSTNAME")]
         public string FirstName { get; set; }
 
         [Column("MIDDLENAME")]
-        public string MiddleName { get; set; }
+        public string? MiddleName { get; set; }
 
         [Column("LASTNAME")]
         public string LastName { get; set; }
 
         [Column("EMAIL")]
         public string Email { get; set; }
+
+        [Column("PASSWORD")]
+        public string Password { get; set; }
 
         [Column("PHONE")]
         public string Phone { get; set; }
@@ -70,5 +70,8 @@ namespace WebProject.Models
 
         [Column("ADDITIONALINFO")]
         public string? AdditionalInfo { get; set; }
+
+        [Column("REGISTRATIONDATE")]
+        public DateTime RegistrationDate { get; set; }
     }
 }

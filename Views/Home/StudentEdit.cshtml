@@ -3,9 +3,9 @@
     ViewData["Title"] = "Edit Student";
 }
 
-<h2>Edit Student</h2>
+<h2>Edit Your Details</h2>
 
-<form asp-action="Edit" method="post">
+<form asp-action="StudentEdit" method="post">
     <input type="hidden" asp-for="StudentIdInternal" />
 
     <table class="edit-table">
@@ -100,6 +100,6 @@
 
     <div class="edit-buttons" style="margin-top: 20px;">
         <button type="submit" class="btn-action">Save</button>
-        <a class="btn-action" href="/Home/Details/@Model.StudentIdInternal">Cancel</a>
+        <a class="btn-action" href="/Home/StudentDetails/@Model.StudentIdInternal">Cancel</a>
     </div>
 </form>

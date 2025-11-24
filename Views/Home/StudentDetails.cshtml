@@ -28,6 +28,7 @@
 </table>
 
 <br />
-<a href="/Home/Students" class="btn-action">Back</a>
-<a href="/Home/Edit/@Model.StudentIdInternal" class="btn-action">Edit</a>
-<a href="/Home/Delete/@Model.StudentIdInternal" class="btn-danger">Delete</a>
+<a href="/Home/StudentEdit/@Model.StudentIdInternal" class="btn-action">Edit</a>
+<form method="post" asp-action="Logout" style="display:inline;">
+    <button type="submit" class="btn-action">Logout</button>
+</form>

@@ -1,0 +1,14 @@
+@model WebProject.Models.Student
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<h2>Registration successful!</h2>
+<br/>
+
+<p>Congratulations <strong>@Model.FirstName @Model.LastName</strong>, you are registered!</p>
+
+<p>Check your email(@Model.Email) for a verification link.</p>
+<p> Log into your account to view account details.</p>
+
+    <a href="/Home/Index" class="btn-action">Home</a>
