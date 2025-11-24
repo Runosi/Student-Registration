@@ -1,32 +1,68 @@
 @model IEnumerable<WebProject.Models.Student>
 @{
     ViewData["Title"] = "All Students";
+
+    var sortOptions = new List<(string Value, string Text)>
+    {
+        ("date_asc", "Registration Date ↑"),
+        ("date_desc", "Registration Date ↓"),
+        ("firstname_asc", "First Name ↑"),
+        ("firstname_desc", "First Name ↓")
+    };
+
+    var currentSort = ViewData["CurrentSort"]?.ToString() ?? "date_asc";
+    var currentFilter = ViewData["CurrentFilter"]?.ToString() ?? "";
 }
 
 <h2>All Students</h2>
 <a href="/Home/Register" class="btn-link">Insert New Record</a>
 
+<form method="get" asp-action="Students">
+    <div style="display:flex; gap:10px; align-items:center; margin-bottom:15px;">
+        <input class="search-input" type="text" name="searchString" value="@currentFilter" placeholder="Search by name" />
+        <button class="search-button" type="submit">Search</button>
+        <select name="sortOrder" onchange="this.form.submit()">
+    @foreach (var option in sortOptions)
+    {
+        if (option.Value == currentSort)
+        {
+            <option value="@option.Value" selected="selected">@option.Text</option>
+        }
+        else
+        {
+            <option value="@option.Value">@option.Text</option>
+        }
+    }
+</select>
+
+
+    </div>
+</form>
+
 <table class="students-table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Student ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Registration Date</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-    @foreach(var student in Model)
-    {
-        <tr>
-            <td>@student.StudentID</td>
-            <td>@student.FirstName</td>
-            <td>@student.LastName</td>
-            <td>
-                <a class="btn-action" href="/Home/Details/@student.StudentID">Details</a>
-                <a class="btn-action" href="/Home/Edit/@student.StudentID">Edit</a>
-                <a class="btn-danger" href="/Home/Delete/@student.StudentID">Delete</a>
-        </tr>
-    }
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@($"T00{student.StudentIdInternal}")</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.RegistrationDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a class="btn-action" href="/Home/Details/@student.StudentIdInternal">Details</a>
+                    <a class="btn-action" href="/Home/Edit/@student.StudentIdInternal">Edit</a>
+                    <a class="btn-danger" href="/Home/Delete/@student.StudentIdInternal">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

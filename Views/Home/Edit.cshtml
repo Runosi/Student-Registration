@@ -6,13 +6,21 @@
 <h2>Edit Student</h2>
 
 <form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="StudentID" />
+    <input type="hidden" asp-for="StudentIdInternal" />
 
     <table class="edit-table">
         <tr>
-            <th>ID</th>
-            <td>@Model.StudentID</td>
+            <th>Student ID</th>
+            <td>
+            @($"T00{Model.StudentIdInternal}")
+            <input type="hidden" asp-for="StudentIdInternal"/>
+            <input type="hidden" asp-for="Password" />
+            </td>
         </tr>
+        <tr>
+            <th>Registration Date</th>
+            <td>@Model.RegistrationDate.ToString("yyyy-MM-dd")</td>
+        <tr>
         <tr>
             <th>First Name</th>
             <td><input asp-for="FirstName" /></td>
@@ -92,6 +100,6 @@
 
     <div class="edit-buttons" style="margin-top: 20px;">
         <button type="submit" class="btn-action">Save</button>
-        <a href="/Home/Students" class="btn-danger">Cancel</a>
+        <a class="btn-action" href="/Home/Details/@Model.StudentIdInternal">Cancel</a>
     </div>
 </form>

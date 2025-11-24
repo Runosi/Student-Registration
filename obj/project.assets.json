@@ -1180,11 +1180,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/noortoor/Desktop/fall2025/WebDesign2/WebProject/WebProject.csproj",
+      "projectUniqueName": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj",
       "projectName": "WebProject",
-      "projectPath": "/Users/noortoor/Desktop/fall2025/WebDesign2/WebProject/WebProject.csproj",
+      "projectPath": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj",
       "packagesPath": "/Users/noortoor/.nuget/packages/",
-      "outputPath": "/Users/noortoor/Desktop/fall2025/WebDesign2/WebProject/obj/",
+      "outputPath": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/noortoor/.nuget/NuGet/NuGet.Config"
