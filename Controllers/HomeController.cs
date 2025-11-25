@@ -9,10 +9,12 @@ namespace WebProject.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly EmailService _emailService;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context, EmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         // Home page
@@ -102,7 +104,18 @@ namespace WebProject.Controllers
                     }
                 }
 
-                // Optionally: send confirmation email here
+                //Generate the verification link
+                var verificationLink=Url.Action("VerifyEmail", "Home", new { email = student.Email, token = student.VerificationToken }, Request.Scheme);
+
+                // Email content
+                string subject = "Welcome to TRU";
+                string body = $@"
+                    <h3>Congratulations You're Registered!</h3>
+                    <p>Click the link to confirm you're email:</p>
+                    <a href='{verificationLink}'> Verify Email</a>";
+
+                Console.WriteLine("Student Email: " + student.Email);
+                _emailService.SendEmail(student.Email, subject, body);
 
                 Console.WriteLine("POST received");
 
@@ -118,6 +131,19 @@ namespace WebProject.Controllers
             return View(student);
         }
 
+        //Email Verification
+        public IActionResult VerifyEmail(string email, string token)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.Email == email && s.VerificationToken == token);
+
+            if (student != null)
+            {
+                student.IsVerified = 1;
+                _context.SaveChanges();
+                return Content($"Email ({email}) verified successfully!");
+            }
+            return Content("Invalid verification link.");
+        }
 
         //Show details of a single student
         public IActionResult Details(int id)

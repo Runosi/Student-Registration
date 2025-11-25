@@ -11,6 +11,7 @@ namespace WebProject.Models
         [Column("STUDENTIDINTERNAL")]
         public int StudentIdInternal { get; set; }
 
+        [Required(ErrorMessage= "First name is required.")]
         [Column("FIRSTNAME")]
         public string FirstName { get; set; }
 
@@ -39,34 +40,35 @@ namespace WebProject.Models
         public int? ExpectedGraduationYear { get; set; }
 
         [Column("ISVERIFIED")]
-        public int? IsVerified { get; set; }
+        public int IsVerified { get; set; } = 0;
 
         [Column("VERIFICATIONTOKEN")]
         public string? VerificationToken { get; set; }
 
+        [Required(ErrorMessage="Date of Birth is required.")]
         [Column("DATEOFBIRTH")]
-        public DateTime? DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Column("NATIONALITY")]
-        public string Nationality { get; set; }
+        public string? Nationality { get; set; }
 
         [Column("GENDER")]
         public string Gender { get; set; }
 
         [Column("STREETADDRESS")]
-        public string StreetAddress { get; set; }
+        public string? StreetAddress { get; set; }
 
         [Column("CITY")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         [Column("PROVINCE")]
-        public string Province { get; set; }
+        public string? Province { get; set; }
 
         [Column("ZIPCODE")]
-        public string ZipCode { get; set; }
+        public string? ZipCode { get; set; }
 
         [Column("COUNTRY")]
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
         [Column("ADDITIONALINFO")]
         public string? AdditionalInfo { get; set; }
