@@ -21,11 +21,11 @@ namespace WebProject.Controllers
             return View();
         }
 
-       public IActionResult Students(string searchString, string sortOrder)
+        public IActionResult Students(string searchString, string sortOrder)
         {
             // Start with all students
             var students = from s in _context.Students
-                   select s;
+                           select s;
 
             // Filter by search string
             if (!string.IsNullOrEmpty(searchString))
@@ -39,16 +39,16 @@ namespace WebProject.Controllers
             {
                 case "date_desc":
                     students = students.OrderByDescending(s => s.RegistrationDate);
-                break;
+                    break;
                 case "firstname_asc":
                     students = students.OrderBy(s => s.FirstName);
-                break;
+                    break;
                 case "firstname_desc":
                     students = students.OrderByDescending(s => s.FirstName);
-                break;
+                    break;
                 default:
                     students = students.OrderBy(s => s.RegistrationDate); // default ascending
-                break;
+                    break;
             }
 
             // Pass current filter and sort order to the view
@@ -142,7 +142,7 @@ namespace WebProject.Controllers
         //Edit (GET) - Load student details in a form
         public IActionResult Edit(int id)
         {
-            var student = _context.Students.FirstOrDefault( s => s.StudentIdInternal == id);
+            var student = _context.Students.FirstOrDefault(s => s.StudentIdInternal == id);
             if (student == null) return NotFound();
             return View(student);
         }
@@ -196,7 +196,7 @@ namespace WebProject.Controllers
             }
             catch (DbUpdateException ex)
             {
-                 // Log exception and show error
+                // Log exception and show error
                 Console.WriteLine("Error updating student: " + ex.Message);
                 ModelState.AddModelError("", "Unable to save changes. Try again.");
                 return View(student);
@@ -220,7 +220,7 @@ namespace WebProject.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var student = _context.Students.FirstOrDefault(s => s.StudentIdInternal == id);
-            if (student == null ) return NotFound();
+            if (student == null) return NotFound();
 
             _context.Students.Remove(student);
             _context.SaveChanges();
@@ -269,12 +269,21 @@ namespace WebProject.Controllers
 
             if (student != null)
             {
+
+                DateTime currentLoginTime = DateTime.UtcNow;
+                student.LastLoginTime = currentLoginTime;
+                _context.SaveChanges();
                 // Create a cookie to remember the logged-in student
                 CookieOptions option = new CookieOptions();
                 option.HttpOnly = true;
                 option.Expires = DateTime.Now.AddHours(1); // cookie valid for 1 hour
 
                 Response.Cookies.Append("StudentIdInternal", student.StudentIdInternal.ToString(), option);
+                CookieOptions userTime = new CookieOptions();
+                userTime.Expires = DateTime.Now.AddMinutes(30);
+
+                // Set the 'LastLogin' cookie using the same time stamp saved to the DB
+                Response.Cookies.Append("LastLogin", currentLoginTime.ToString("o"), userTime);
 
                 return RedirectToAction("StudentDetails", new { id = student.StudentIdInternal });
             }
@@ -296,6 +305,31 @@ namespace WebProject.Controllers
             if (student == null) return NotFound();
             return View(student);
         }
+
+        public IActionResult SetTimeCookie(DateTime loginTime)
+        {
+            CookieOptions userTime = new CookieOptions();
+            userTime.Expires = DateTime.Now.AddMinutes(30);
+            Response.Cookies.Append("LastLogin", DateTime.UtcNow.ToString("o"), userTime);
+            return Content("User Login time successfully recorded.");
+        }
+
+        public IActionResult GetTimeCookie()
+        {
+            var loginTime = Request.Cookies["LastLogin"];
+            if (loginTime != null)
+            {
+                return Content($"Last time user logged in was: {loginTime}");
+            }
+            return Content("User time can not recorded at the moment");
+        }
+
+        public IActionResult DeleteCookie()
+        {
+            Response.Cookies.Delete("LastLogin");
+            return Content("Cookie successfully deleted.");
+        }
+
 
         [HttpGet]
         public IActionResult StudentEdit(int id)
@@ -357,7 +391,7 @@ namespace WebProject.Controllers
             }
             catch (DbUpdateException ex)
             {
-                 // Log exception and show error
+                // Log exception and show error
                 Console.WriteLine("Error updating student: " + ex.Message);
                 ModelState.AddModelError("", "Unable to save changes. Try again.");
                 return View(student);
@@ -367,4 +401,6 @@ namespace WebProject.Controllers
         }
 
     }
+
+
 }

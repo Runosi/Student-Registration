@@ -73,5 +73,7 @@ namespace WebProject.Models
 
         [Column("REGISTRATIONDATE")]
         public DateTime RegistrationDate { get; set; }
+        [Column("LASTLOGINTIME")]
+        public DateTime? LastLoginTime { get; set; }
     }
 }

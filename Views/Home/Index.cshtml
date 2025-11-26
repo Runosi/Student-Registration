@@ -1,8 +1,58 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+<header class=nav-bar>
+    <nav>
+        <ul>
+            <li><a href="/#">Home</a></li>
+            <li><a href="/#">About us</a></li>
+            <li><a href="/#">Contact Us</a></li>
+            <li><a href="/#">Book an Appointment</a></li>
+            <li id="reg-btn"> <a href="/Home/Register">Register</a></li>
+        </ul>
 
-<h2>Welcome</h2>
-<a class="btn btn-primary" href="/Home/Register">New Student</a>
-<a class="btn btn-secondary" href="/Home/AdminLogin">Admin</a>
-<a class="btn btn-warning" href="/Home/StudentLogin">Returning Student</a>
+
+    </nav>
+
+
+</header>
+
+<div class="home-container">
+
+    <div class="right-side">
+
+        <div class="home-btn">
+            <h1 id="he2">Welcome</h1>
+            <h3>Who are you today?</h2>
+
+                <a class="new-btn" href="/Home/Register">New Student</a>
+                <a class="new-btn" href="/Home/AdminLogin">Admin</a>
+                <a class="new-btn" href="/Home/StudentLogin">Returning Student</a>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div class="card-holder">
+
+    <div id="card1">
+        <h2>Upcoming Events</h2>
+        <img src="~/img/event.jpg" alt="events">
+        <p>Click to see scheduled events</p>
+    </div>
+
+    <div id="card2">
+        <h2>Dates and Deadlines</h2>
+        <img src="~/img/exam.jpg" alt="events">
+        <p>Click to see important deadlines</p>
+    </div>
+
+    <div id="card3">
+        <h2>Campus Tour</h2>
+        <img src="~/img/university.jpg" alt="events">
+        <p>Schedule a campus tour</p>
+    </div>
+</div>

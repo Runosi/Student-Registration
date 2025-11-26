@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj": {}
+    "C:\\Users\\nwuke\\Documents\\GitHub\\Student-Registration\\WebProject.csproj": {}
   },
   "projects": {
-    "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj": {
+    "C:\\Users\\nwuke\\Documents\\GitHub\\Student-Registration\\WebProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj",
+        "projectUniqueName": "C:\\Users\\nwuke\\Documents\\GitHub\\Student-Registration\\WebProject.csproj",
         "projectName": "WebProject",
-        "projectPath": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/WebProject.csproj",
-        "packagesPath": "/Users/noortoor/.nuget/packages/",
-        "outputPath": "/Users/noortoor/Desktop/Student-Registration/Student-Registration/obj/",
+        "projectPath": "C:\\Users\\nwuke\\Documents\\GitHub\\Student-Registration\\WebProject.csproj",
+        "packagesPath": "C:\\Users\\nwuke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nwuke\\Documents\\GitHub\\Student-Registration\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/noortoor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nwuke\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -71,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

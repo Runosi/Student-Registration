@@ -19,6 +19,27 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+/*app.MapGet("/setcookie", (HttpContext context) =>
+{
+    context.Response.Cookies.Append("Last Login", DateTime.UtcNow.ToString("o"), new CookieOptions
+    {
+        Expires = DateTimeOffset.Now.AddMinutes(30)
+    });
+    return "Cookie has been set";
+});
+
+app.MapGet("/getcookie", (HttpContext context) =>
+{
+    var loginTime = context.Request.Cookies["Last Login"];
+    return loginTime is not null ? $"Hello {loginTime}" : "No cookie found";
+});
+
+app.MapGet("/deleteCookie", (HttpContext context) =>
+{
+    context.Response.Cookies.Delete("Last Login");
+    return "Cookie Deleted!";
+});*/
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
