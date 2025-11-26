@@ -26,7 +26,6 @@
 
 
     <table class="details-table">
-
         <tr>
             <th>Student ID</th>
             <td>@($"T00{Model.StudentIdInternal}")</td>
@@ -52,6 +51,17 @@
             <td>@Model.Email</td>
         </tr>
         <tr>
+            <th>Email Verification</th>
+            <td>@if (Model.IsVerified == 1)
+                {
+                    <p>Verified ✔</p>
+                }else
+                {
+                    <p>✖ Not Verified</p>
+                }
+            </td>
+        </tr>
+        <tr>
             <th>Phone</th>
             <td>@Model.Phone</td>
         </tr>
@@ -69,7 +79,7 @@
         </tr>
         <tr>
             <th>Date of Birth</th>
-            <td>@Model.DateOfBirth?.ToShortDateString()</td>
+            <td>@Model.DateOfBirth.ToShortDateString()</td>
         </tr>
         <tr>
             <th>Gender</th>

@@ -38,6 +38,16 @@
             <td><input asp-for="Email" type="email" /></td>
         </tr>
         <tr>
+            <th>Email Verification</th>
+            <td>@if (Model.IsVerified == 1)
+                {
+                    <p>Verified ✔</p>
+                }else
+                {
+                    <p>✖ Not Verified</p>
+                }</td>
+        </tr>
+        <tr>
             <th>Phone</th>
             <td><input asp-for="Phone" /></td>
         </tr>
