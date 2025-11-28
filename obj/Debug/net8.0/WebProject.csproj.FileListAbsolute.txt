@@ -180,3 +180,6 @@ C:\Users\nwuke\Documents\GitHub\Student-Registration\obj\Debug\net8.0\ref\WebPro
 /Users/noortoor/Desktop/Student-Registration/obj/Debug/net8.0/WebProject.genruntimeconfig.cache
 /Users/noortoor/Desktop/Student-Registration/obj/Debug/net8.0/ref/WebProject.dll
 >>>>>>> edf2562c88d06ad2340855976b7999ecd893f77c
+C:\Users\nwuke\Documents\GitHub\Student-Registration\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\nwuke\Documents\GitHub\Student-Registration\bin\Debug\net8.0\MailKit.dll
+C:\Users\nwuke\Documents\GitHub\Student-Registration\bin\Debug\net8.0\MimeKit.dll
